@@ -9,7 +9,7 @@
     <visual>
       <origin rpy="0 0 -1.570796" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://spherical-radar-drone/mesh/drone_radar_dome_fine_2x.stl"/>
+        <mesh filename="package://spherical-radar-drone-visualizer/mesh/drone_radar_dome_fine_2x.stl"/>
       </geometry>
       <material name="blue"/>
     </visual>
