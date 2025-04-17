@@ -10,20 +10,20 @@ import os
 
 def generate_launch_description():
     config = os.path.join(
-        get_package_share_directory('spherical-radar-drone'),
+        get_package_share_directory('spherical-radar-drone-visualizer'),
         'config',
         'params.yaml'
     )
 
     look_ahead_cone_republisher = Node(
-        package="spherical-radar-drone",
+        package="spherical-radar-drone-visualizer",
         executable="look_ahead_cone_republisher",
     )
 
     # loads robot description from URDF
     use_sim_time = LaunchConfiguration('use_sime_time', default='false')
     urdf_file_name = 'urdf/test.urdf'
-    urdf = os.path.join(get_package_share_directory('spherical-radar-drone'), urdf_file_name)
+    urdf = os.path.join(get_package_share_directory('spherical-radar-drone-visualizer'), urdf_file_name)
     with open(urdf, 'r') as infp:
         robot_desc = infp.read()
 
@@ -42,7 +42,7 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
         output='screen',
-        arguments=["-d", os.path.join(get_package_share_directory('spherical-radar-drone'), 'rviz/spherical_radar.rviz')]
+        arguments=["-d", os.path.join(get_package_share_directory('spherical-radar-drone-visualizer'), 'rviz/spherical_radar.rviz')]
     )
 
 
