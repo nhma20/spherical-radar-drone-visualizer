@@ -100,7 +100,7 @@ void RadarPCLFilter::repub_marker(const visualization_msgs::msg::MarkerArray::Sh
 		{
 			visualization_msgs::msg::Marker look_ahead_marker = msg->markers[i];
 
-			std::string mesh_path = look_ahead_marker.mesh_resource = "file://" + ament_index_cpp::get_package_share_directory("spherical-radar-drone") + "/mesh/look_ahead_cone.stl";
+			std::string mesh_path = look_ahead_marker.mesh_resource = "file://" + ament_index_cpp::get_package_share_directory("spherical-radar-drone-visualizer") + "/mesh/look_ahead_cone.stl";
 			look_ahead_marker.mesh_resource = mesh_path;
 
 			marker_array.markers.push_back(look_ahead_marker);
