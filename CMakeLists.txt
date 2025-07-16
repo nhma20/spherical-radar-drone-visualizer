@@ -22,6 +22,7 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(visualization_msgs REQUIRED)
 find_package(ament_index_cpp REQUIRED)
+find_package(toggle_radar_msgs REQUIRED)
 
 
 add_executable(look_ahead_cone_republisher
@@ -33,6 +34,18 @@ add_executable(look_ahead_cone_republisher
   visualization_msgs
 )
 install(TARGETS look_ahead_cone_republisher DESTINATION lib/${PROJECT_NAME})
+
+
+add_executable(radar_zone_visualizer
+src/radar_zone_visualizer.cpp
+)
+  ament_target_dependencies(radar_zone_visualizer
+  rclcpp
+  ament_index_cpp
+  toggle_radar_msgs
+  visualization_msgs
+)
+install(TARGETS radar_zone_visualizer DESTINATION lib/${PROJECT_NAME})
 
 
 # Export information to downstream packages
