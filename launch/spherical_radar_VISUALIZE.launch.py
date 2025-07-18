@@ -52,7 +52,7 @@ def generate_launch_description():
 
 
     return LaunchDescription([
-        robot_state_publisher,
+        # robot_state_publisher,
         look_ahead_cone_republisher,
         radar_zone_visualizer,
         rviz_node
