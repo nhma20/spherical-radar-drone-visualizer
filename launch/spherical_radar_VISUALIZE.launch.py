@@ -15,6 +15,42 @@ def generate_launch_description():
         'params.yaml'
     )
 
+    tf_drone_to_front = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        arguments=["0.10", "0.0", "0.0", "-1.570796", "-1.570796", "0.0", "drone", "front_frame"] #  (x, y, z, yaw, roll, pitch) # arguments=["0", "0.0", "-0.08", "1.570796", "0.0", "-1.570796", "drone", "iwr6843_frame"] # Simulation (x, y, z, yaw, roll, pitch)
+    )
+
+    tf_drone_to_rear = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        arguments=["-0.10", "0.0", "0.0", "1.570796", "0.0", "0.0", "drone", "rear_frame"] #  (x, y, z, yaw, roll, pitch)
+    )
+
+    tf_drone_to_top = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        arguments=["-0.10", "0.0", "0.10", "-1.570796", "0.0", "1.570796", "drone", "top_frame"] #  (x, y, z, yaw, roll, pitch)
+    )
+
+    tf_drone_to_bot = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        arguments=["0", "0.0", "-0.10", "-1.570796", "0.0", "-1.570796", "drone", "bot_frame"] #  (x, y, z, yaw, roll, pitch)
+    )
+
+    tf_drone_to_right = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        arguments=["0.0", "-0.10", "-0.04", "0.26179938", "0.0", "3.141593", "drone", "right_frame"] #  (x, y, z, yaw, roll, pitch)
+    )
+
+    tf_drone_to_left = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        arguments=["0.0", "0.10", "-0.04", "-0.26179938", "0.0", "0.0", "drone", "left_frame"] #  (x, y, z, yaw, roll, pitch)
+    )
+
     look_ahead_cone_republisher = Node(
         package="spherical-radar-drone-visualizer",
         executable="look_ahead_cone_republisher",
@@ -52,6 +88,12 @@ def generate_launch_description():
 
 
     return LaunchDescription([
+        tf_drone_to_rear,
+        tf_drone_to_front,
+        tf_drone_to_left,
+        tf_drone_to_right,
+        tf_drone_to_top,
+        tf_drone_to_bot,
         # robot_state_publisher,
         look_ahead_cone_republisher,
         radar_zone_visualizer,
