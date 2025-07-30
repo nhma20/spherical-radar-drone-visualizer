@@ -88,12 +88,12 @@ def generate_launch_description():
 
 
     return LaunchDescription([
-        # tf_drone_to_rear,
-        # tf_drone_to_front,
-        # tf_drone_to_left,
-        # tf_drone_to_right,
-        # tf_drone_to_top,
-        # tf_drone_to_bot,
+        tf_drone_to_rear,
+        tf_drone_to_front,
+        tf_drone_to_left,
+        tf_drone_to_right,
+        tf_drone_to_top,
+        tf_drone_to_bot,
         # robot_state_publisher,
         look_ahead_cone_republisher,
         radar_zone_visualizer,
